@@ -14,7 +14,7 @@ module.exports = {
         }),
     ],
     devServer: {
-        historyApiFallback: true,
+        historyApiFallback: true
     },
     module: {
         rules: [
@@ -23,6 +23,13 @@ module.exports = {
                 exclude: /node_modules/,
                 use: ['babel-loader'],
             },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                loader: 'file-loader',
+                options: {
+                    name: '[path][name].[hash].[ext]',
+                },
+            }
         ],
     },
     resolve: {
